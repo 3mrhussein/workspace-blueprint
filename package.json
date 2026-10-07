@@ -13,6 +13,7 @@
     "test": "turbo run test",
     "test:integration": "turbo run test:integration",
     "test:e2e": "turbo run test:e2e",
+    "verify:contracts": "node tools/verify-contracts.mjs",
     "clean": "turbo run clean && rm -rf node_modules .turbo"
   },
   "devDependencies": {

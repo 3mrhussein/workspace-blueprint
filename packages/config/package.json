@@ -1,0 +1,23 @@
+{
+  "name": "@blueprint/config",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./eslint/base": "./eslint/base.js",
+    "./eslint/library": "./eslint/library.js",
+    "./eslint/app": "./eslint/app.js",
+    "./typescript/base.json": "./typescript/base.json",
+    "./typescript/library.json": "./typescript/library.json",
+    "./typescript/app.json": "./typescript/app.json"
+  },
+  "scripts": {
+    "build": "echo 'config ok'",
+    "lint": "echo 'config lint ok'",
+    "type-check": "echo 'config types ok'",
+    "test": "echo 'config test ok'"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}
