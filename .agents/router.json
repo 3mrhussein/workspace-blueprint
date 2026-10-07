@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json.schemastore.org/schema",
+  "version": "1.0.0",
+  "name": "workspace-domain-router",
+  "description": "Recursive Domain Registry for Hierarchical Agent Dispatching",
+  "domains": [
+    {
+      "name": "identity",
+      "path": "packages/domain-core/src/identity",
+      "blueprint": "packages/domain-core/src/identity/DOMAIN.md",
+      "description": "User authentication, sessions, permissions, credentials, and identity tokens",
+      "subdomains": [
+        {
+          "name": "auth",
+          "path": "packages/domain-core/src/identity/auth",
+          "description": "Credential verification, MFA, session token generation"
+        },
+        {
+          "name": "permissions",
+          "path": "packages/domain-core/src/identity/permissions",
+          "description": "Role-based access control and policy checks"
+        }
+      ]
+    },
+    {
+      "name": "platform-ops",
+      "path": ".github",
+      "blueprint": "docs/architecture/mental-model.md",
+      "description": "CI/CD automation, GitHub workflows, release governance, and bot state machines"
+    }
+  ]
+}

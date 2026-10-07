@@ -1,0 +1,21 @@
+{
+  "name": "@blueprint/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "echo 'dev server starting'",
+    "build": "tsc",
+    "lint": "echo 'lint ok'",
+    "type-check": "tsc --noEmit",
+    "test": "echo 'unit tests ok'",
+    "test:integration": "echo 'integration tests ok'",
+    "test:e2e": "echo 'e2e tests ok; artifacts to $TEST_ARTIFACTS_DIR'"
+  },
+  "dependencies": {
+    "@blueprint/domain-core": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}

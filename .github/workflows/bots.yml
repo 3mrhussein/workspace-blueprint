@@ -1,0 +1,31 @@
+name: Bots & PR State Machine
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, labeled, unassigned]
+  issue_comment:
+    types: [created]
+
+permissions:
+  pull-requests: write
+  issues: write
+  contents: read
+
+jobs:
+  queue-review:
+    name: Queue PR for Review
+    if: >
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.draft == false &&
+      !contains(github.event.pull_request.labels.*.name, 'review:in-progress') &&
+      !contains(github.event.pull_request.labels.*.name, 'reviewed:claude') &&
+      !contains(github.event.pull_request.labels.*.name, 'reviewed:codex')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Apply review:queued label
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          gh pr edit "$PR_NUMBER" --add-label "review:queued" || true

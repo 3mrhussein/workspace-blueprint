@@ -1,0 +1,28 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Build & Turbo
+dist
+.next
+.turbo
+.tmp
+
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Test & Artifacts (Inversion of Control Contract)
+coverage/
+artifacts/
+test-results/
+
+# System & Editors
+.DS_Store
+*.log
+.idea
+.vscode/*
+!.vscode/extensions.json
+tsconfig.tsbuildinfo
